@@ -36,6 +36,7 @@ modules:
       - xdg-desktop-portal-hyprland
       - polkit-gnome
       - gnome-shell-extension-dash-to-dock
+      - brightnessctl
 #      - nwg-shell
     remove:
       - firefox # default firefox removed in favor of flatpak
