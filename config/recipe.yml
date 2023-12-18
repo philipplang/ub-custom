@@ -37,6 +37,8 @@ modules:
       - polkit-gnome
       - gnome-shell-extension-dash-to-dock
       - brightnessctl
+      - pavucontrol
+      - blueman
 #      - nwg-shell
     remove:
       - firefox # default firefox removed in favor of flatpak
