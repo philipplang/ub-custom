@@ -39,6 +39,7 @@ modules:
       - brightnessctl
       - pavucontrol
       - blueman
+      - NetworkManager-tui
 #      - nwg-shell
     remove:
       - firefox # default firefox removed in favor of flatpak
