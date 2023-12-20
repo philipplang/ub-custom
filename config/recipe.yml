@@ -41,6 +41,8 @@ modules:
       - blueman
       - NetworkManager-tui
       - swaybg
+      - swayidle
+      - swaylock
 #      - nwg-shell
     remove:
       - firefox # default firefox removed in favor of flatpak
