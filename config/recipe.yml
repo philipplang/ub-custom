@@ -43,7 +43,6 @@ modules:
       - NetworkManager-tui
       - swaybg
       - swayidle
-      - swaylock
       - swaylock-effects
       - wlogout
       - wl-clipboard
