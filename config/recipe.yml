@@ -23,6 +23,7 @@ modules:
   - type: rpm-ostree
     repos:
  #     - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/repo/fedora-%OS_VERSION%/tofik-nwg-shell-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/eddsalkield/swaylock-effects/repo/fedora-%OS_VERSION%/eddsalkield-swaylock-effects-fedora-%OS_VERSION%.repo
     install:
       # - micro
       # - starship
@@ -43,8 +44,11 @@ modules:
       - swaybg
       - swayidle
       - swaylock
+      - swaylock-effects
+      - wlogout
       - wl-clipboard
       - swappy
+      - fontawesome-fonts-all
 #      - nwg-shell
     remove:
       - firefox # default firefox removed in favor of flatpak
