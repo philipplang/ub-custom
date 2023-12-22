@@ -48,6 +48,8 @@ modules:
       - wl-clipboard
       - swappy
       - fontawesome-fonts-all
+      - libappindicator-gtk3
+      - libreoffice-calc
 #      - nwg-shell
     remove:
       - firefox # default firefox removed in favor of flatpak
