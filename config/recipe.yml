@@ -25,12 +25,14 @@ modules:
  #     - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/repo/fedora-%OS_VERSION%/tofik-nwg-shell-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/eddsalkield/swaylock-effects/repo/fedora-%OS_VERSION%/eddsalkield-swaylock-effects-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kallepm/tuxedo-control-center/repo/fedora-39/kallepm-tuxedo-control-center-fedora-39.repo
+      - https://copr.fedorainfracloud.org/coprs/kallepm/tuxedo-drivers/repo/fedora-39/kallepm-tuxedo-drivers-fedora-39.repo
     install:
     # gnome
       - gnome-shell-extension-dash-to-dock
       - gnome-shell-extension-user-theme
     # allgemein
       - libreoffice-calc
+      - tuxedo-drivers
       - tuxedo-control-center
     # Hyprland + Wayland
       - hyprland
