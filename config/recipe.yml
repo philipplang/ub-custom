@@ -32,8 +32,8 @@ modules:
       - gnome-shell-extension-user-theme
     # allgemein
       - libreoffice-calc
-      - tuxedo-drivers
-      - tuxedo-control-center
+#      - tuxedo-drivers
+#      - tuxedo-control-center
     # Hyprland + Wayland
       - hyprland
       - waybar
