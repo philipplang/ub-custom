@@ -24,12 +24,14 @@ modules:
     repos:
  #     - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/repo/fedora-%OS_VERSION%/tofik-nwg-shell-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/eddsalkield/swaylock-effects/repo/fedora-%OS_VERSION%/eddsalkield-swaylock-effects-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/kallepm/tuxedo-control-center/repo/fedora-39/kallepm-tuxedo-control-center-fedora-39.repo
     install:
     # gnome
       - gnome-shell-extension-dash-to-dock
       - gnome-shell-extension-user-theme
     # allgemein
       - libreoffice-calc
+      - tuxedo-control-center
     # Hyprland + Wayland
       - hyprland
       - waybar
@@ -46,12 +48,13 @@ modules:
       - NetworkManager-tui
       - swaybg
       - swayidle
-      - swaylock-effects
+#      - swaylock-effects
       - wlogout
       - wl-clipboard
       - swappy
       - fontawesome-fonts-all
       - libappindicator-gtk3
+    # labwc
       - labwc
       - bemenu
     remove:
