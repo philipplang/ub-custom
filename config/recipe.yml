@@ -34,7 +34,7 @@ modules:
     # allgemein
       - libreoffice-calc
 #      - tuxedo-drivers
-      - kernel-headers
+      - kernel-devel
       - tuxedo-control-center
     # Hyprland + Wayland
       - hyprland
