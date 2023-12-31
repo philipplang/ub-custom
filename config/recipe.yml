@@ -34,7 +34,8 @@ modules:
     # allgemein
       - libreoffice-calc
 #      - tuxedo-drivers
-#      - tuxedo-control-center
+      - kernel-headers
+      - tuxedo-control-center
     # Hyprland + Wayland
       - hyprland
       - waybar
@@ -63,6 +64,7 @@ modules:
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
+      - hyprland
 
   - type: bling # configure what to pull in from ublue-os/bling
     install:
