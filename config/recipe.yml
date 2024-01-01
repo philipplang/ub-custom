@@ -33,9 +33,11 @@ modules:
       - gnome-shell-extension-user-theme
     # allgemein
       - libreoffice-calc
+      - VirtualBox
+      - virtualbox-guest-additions
 #      - tuxedo-drivers
-      - kernel-devel
-      - tuxedo-control-center
+#      - kernel-devel
+#      - tuxedo-control-center
     # Hyprland + Wayland
       - hyprland
       - waybar
@@ -61,6 +63,8 @@ modules:
     # labwc
       - labwc
       - bemenu
+    # sway
+      - sway
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
