@@ -35,6 +35,7 @@ modules:
       - libreoffice-calc
       - VirtualBox
       - virtualbox-guest-additions
+      - akmod-VirtualBox
 #      - tuxedo-drivers
 #      - kernel-devel
 #      - tuxedo-control-center
