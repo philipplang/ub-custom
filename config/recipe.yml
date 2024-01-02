@@ -36,6 +36,8 @@ modules:
       - VirtualBox
       - virtualbox-guest-additions
       - akmod-VirtualBox
+      - zsh
+      - zsh-syntax-highlighting
 #      - tuxedo-drivers
 #      - kernel-devel
 #      - tuxedo-control-center
