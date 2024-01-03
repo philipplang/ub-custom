@@ -32,7 +32,7 @@ modules:
       - gnome-shell-extension-dash-to-dock
       - gnome-shell-extension-user-theme
     # allgemein
-      - libreoffice-calc
+    #  - libreoffice-calc
       - VirtualBox
       - virtualbox-guest-additions
       - akmod-VirtualBox
