@@ -33,6 +33,7 @@ modules:
       - gnome-shell-extension-user-theme
     # allgemein
     #  - libreoffice-calc
+      - thunderbird
       - VirtualBox
       - virtualbox-guest-additions
       - akmod-VirtualBox
