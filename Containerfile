@@ -36,8 +36,9 @@ COPY modules /tmp/modules/
 # It is copied from the official container image since it's not available as an RPM.
 COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
-# Change this if you want different version/tag of akmods.
-COPY --from=ghcr.io/ublue-os/akmods:main-39 /rpms /tmp/rpms
+COPY --from=ghcr.io/ublue-os/akmods:main-39 /rpms/ /tmp/rpms
+RUN find /tmp/rpms
+RUN rpm-ostree install /tmp/rpms/kmods/kmod-VirtualBox*.rpm
 
 # Run the build script, then clean up temp files and finalize container build.
 RUN chmod +x /tmp/build.sh && /tmp/build.sh && \
