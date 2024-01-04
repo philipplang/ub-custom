@@ -39,6 +39,8 @@ modules:
       - akmod-VirtualBox
       - zsh
       - zsh-syntax-highlighting
+      - lsd
+      - system-config-printer
 #      - tuxedo-drivers
 #      - kernel-devel
 #      - tuxedo-control-center
