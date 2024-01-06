@@ -33,10 +33,11 @@ modules:
       - gnome-shell-extension-user-theme
     # allgemein
     #  - libreoffice-calc
+      - podman-compose
       - thunderbird
       - VirtualBox
       - virtualbox-guest-additions
-      - akmod-VirtualBox
+#      - akmod-VirtualBox
       - zsh
       - zsh-syntax-highlighting
       - lsd
