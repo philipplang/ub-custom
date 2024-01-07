@@ -37,7 +37,7 @@ modules:
       - thunderbird
       - VirtualBox
       - virtualbox-guest-additions
-#      - akmod-VirtualBox
+      - akmod-VirtualBox
       - zsh
       - zsh-syntax-highlighting
       - lsd
