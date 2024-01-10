@@ -42,6 +42,7 @@ modules:
       - zsh-syntax-highlighting
       - lsd
       - system-config-printer
+      - mscore-fonts
 #      - tuxedo-drivers
 #      - kernel-devel
 #      - tuxedo-control-center
