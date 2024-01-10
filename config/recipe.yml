@@ -43,6 +43,7 @@ modules:
       - lsd
       - system-config-printer
       - mscore-fonts
+      - powertop
 #      - tuxedo-drivers
 #      - kernel-devel
 #      - tuxedo-control-center
