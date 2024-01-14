@@ -44,6 +44,7 @@ modules:
       - system-config-printer
       - mscore-fonts
       - powertop
+      - pinta # Bild-Editor
 #      - tuxedo-drivers
 #      - kernel-devel
 #      - tuxedo-control-center
