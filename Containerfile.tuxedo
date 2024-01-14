@@ -1,0 +1,50 @@
+# ARG IMAGE_MAJOR_VERSION=39
+# ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
+
+# FROM ${BASE_IMAGE_URL}:${IMAGE_MAJOR_VERSION} as builder
+
+FROM registry.fedoraproject.org/fedora-toolbox:39 AS builder
+ARG KERNEL_VERSION
+
+WORKDIR /tmp
+
+RUN dnf install -y make kernel-devel kernel-headers binutils
+RUN dnf install -y koji && \
+    koji download-build --rpm --arch=x86_64 kernel-core-${KERNEL_VERSION} && \
+    koji download-build --rpm --arch=x86_64 kernel-devel-${KERNEL_VERSION} && \
+    koji download-build --rpm --arch=x86_64 kernel-modules-${KERNEL_VERSION} && \
+    dnf install kernel-core-${KERNEL_VERSION}.rpm \
+    kernel-devel-${KERNEL_VERSION}.rpm \
+    kernel-modules-${KERNEL_VERSION}.rpm -y && \
+    dnf clean all \
+    && wget https://gitlab.com/tuxedocomputers/development/packages/tuxedo-drivers/-/archive/v4.0.3/tuxedo-drivers-v4.0.3.tar.gz \
+    && tar xfvz tuxedo-drivers-*.tar.gz
+
+RUN uname -rs
+RUN ls -lha /lib/modules
+
+WORKDIR /tmp/tuxedo-drivers-v4.0.3
+RUN KERNELDIR=/usr/lib/modules/${KERNEL_VERSION}/build make -j$(nproc) && make install
+RUN tree | grep tux
+#RUN tree /usr/lib/modules/${KERNEL_VERSION}
+
+# ARG SOURCE_IMAGE="${SOURCE_IMAGE:-base}"
+# ARG SOURCE_ORG="${SOURCE_ORG:-fedora-ostree-desktops}"
+# ARG BASE_IMAGE="quay.io/${SOURCE_ORG}/${SOURCE_IMAGE}"
+# ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-39}"
+
+# FROM ${BASE_IMAGE}:${FEDORA_MAJOR_VERSION} AS builder
+
+# RUN rpm-ostree install make kernel-devel kernel-headers
+# RUN rpm-ostree install binutils libstdc++-static
+
+# RUN which ld
+
+# RUN ls -lha /lib/modules
+# RUN uname -rs
+
+# RUN cd /tmp \
+#     && wget https://gitlab.com/tuxedocomputers/development/packages/tuxedo-drivers/-/archive/v4.0.3/tuxedo-drivers-v4.0.3.tar.gz \
+#     && tar xfvz tuxedo-drivers-*.tar.gz \
+#     && cd tuxedo-drivers-v4.0.3 \
+#     && make
