@@ -122,5 +122,6 @@ modules:
         - com.google.Chrome
         - com.mattjakeman.ExtensionManager
         - com.discordapp.Discord
+        - info.portfolio_performance.PortfolioPerformance
 
   - type: signing
