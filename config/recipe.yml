@@ -78,6 +78,7 @@ modules:
       - swappy
       - fontawesome-fonts-all
       - libappindicator-gtk3
+      - strace # for debugging Keycloak integration
     # labwc
     #  - labwc
     #  - bemenu
