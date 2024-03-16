@@ -58,7 +58,8 @@ modules:
       - hyprland
       - hypridle
       - hyprlock
-      - waybar
+      # - waybar
+      - waybar-git # enthaelt neusten Snapshot von waybar.
       - kitty
       - alacritty
       - wofi
@@ -124,5 +125,6 @@ modules:
         - com.mattjakeman.ExtensionManager
         - com.discordapp.Discord
         - info.portfolio_performance.PortfolioPerformance
+        - io.podman_desktop.PodmanDesktop
 
   - type: signing
