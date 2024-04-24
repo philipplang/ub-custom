@@ -85,7 +85,7 @@ modules:
     #  - bemenu
     # sway
 #      - sway
-      - nwg-shell
+#      - nwg-shell
     # i3
 #      - i3
     remove:
