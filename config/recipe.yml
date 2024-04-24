@@ -12,7 +12,7 @@ image-version: 39 # latest is also supported if you want new updates ASAP
 modules:
   - type: akmods
     install:
-        # - v4l2loopback
+        - v4l2loopback
         - VirtualBox
   - type: files
     files:
