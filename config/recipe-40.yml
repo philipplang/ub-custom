@@ -80,6 +80,7 @@ modules:
       - fontawesome-fonts-all
       - libappindicator-gtk3
       - network-manager-applet
+      - swaylock
       - strace # for debugging Keycloak integration
     # labwc
     #  - labwc
