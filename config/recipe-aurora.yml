@@ -10,19 +10,19 @@ image-version: 40 # latest is also supported if you want new updates ASAP
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  # - type: akmods
-  #   install:
-  #       - v4l2loopback
-  #       - VirtualBox
-  # - type: files
-  #   files:
-  #     - usr: /usr # copy static configurations
-  #                 #
-  #                 # copies config/files/usr into your image's /usr
-  #                 #
-  #                 # configuration you wish to end up in /etc/ on the booted system
-  #                 # should be added into /usr/etc/ as that is the proper "distro"
-  #                 # config directory on ostree. Read more in the files module's README
+  - type: akmods
+    install:
+        - v4l2loopback
+        - VirtualBox
+  - type: files
+    files:
+      - usr: /usr # copy static configurations
+                  #
+                  # copies config/files/usr into your image's /usr
+                  #
+                  # configuration you wish to end up in /etc/ on the booted system
+                  # should be added into /usr/etc/ as that is the proper "distro"
+                  # config directory on ostree. Read more in the files module's README
 
   - type: rpm-ostree
     repos:
@@ -51,7 +51,7 @@ modules:
       # - hyprland
       # - hypridle
       # - hyprlock
-      # - waybar
+      - waybar
       # - kitty
       # - alacritty
       # - wofi
