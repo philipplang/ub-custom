@@ -11,6 +11,7 @@ image-version: 39 # latest is also supported if you want new updates ASAP
 # you can include multiple instances of the same module
 modules:
   - type: akmods
+    base: extra
     install:
         - v4l2loopback
         - VirtualBox
