@@ -81,6 +81,7 @@ modules:
       - libappindicator-gtk3
       - network-manager-applet
       - swaylock
+      - wireguard-tools
       - strace # for debugging Keycloak integration
     # labwc
     #  - labwc
