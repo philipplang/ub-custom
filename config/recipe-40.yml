@@ -59,8 +59,8 @@ modules:
       - hyprland-plugins
       - hypridle
       - hyprlock
-      - waybar
-      #- waybar-git # enthaelt neusten Snapshot von waybar.
+      #- waybar
+      - waybar-git # enthaelt neusten Snapshot von waybar.
       - kitty
       - alacritty
       - wofi
