@@ -32,22 +32,34 @@ modules:
       # - https://copr.fedorainfracloud.org/coprs/kallepm/tuxedo-drivers/repo/fedora-%OS_VERSION%/kallepm-tuxedo-drivers-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%OS_VERSION%/solopasha-hyprland-fedora-%OS_VERSION%.repo
     install:
-      # - gnome-shell-extension-dash-to-dock
-      # - gnome-shell-extension-user-theme
+      # common
       - podman-compose
-      # - thunderbird
       - VirtualBox
-      # - virtualbox-guest-additions
-      # - akmod-VirtualBox
+      - virtualbox-guest-additions
       - zsh
       - zsh-syntax-highlighting
       - lsd
-      # - system-config-printer
       - mscore-fonts
       - powertop
+      - firewall-config
+      - wl-clipboard
+      - fontawesome-fonts-all
+      - wireguard-tools
+      - sshfs
+
+      # - gnome-shell-extension-dash-to-dock
+      # - gnome-shell-extension-user-theme
+      
+      # - thunderbird
+      
+      # - virtualbox-guest-additions
+      # - akmod-VirtualBox
+
+      # - system-config-printer
+
       # - sshfs
       # - pinta # Bild-Editor
-      - firewall-config
+
       # - hyprland
       # - hypridle
       # - hyprlock
@@ -66,16 +78,15 @@ modules:
       # - swaybg
       # - swayidle
       # - wlogout
-      # - wl-clipboard
+
       # - swappy
-      - fontawesome-fonts-all
+
       # - libappindicator-gtk3
       # - network-manager-applet
       # - swaylock
       # - strace # for debugging Keycloak integration
 
       # specific to kde:
-      - wl-clipboard
       - libadwaita-qt5
       - libadwaita-qt6
       - kdeplasma-addons
@@ -91,7 +102,6 @@ modules:
       - jetbrains-mono-fonts-all
       - mozilla-fira-mono-fonts
       - powerline-fonts
-      # - ubuntu-family-fonts
     remove:
       - ublue-os-update-services
       - plasma-welcome
