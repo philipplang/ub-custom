@@ -91,7 +91,7 @@ modules:
       - jetbrains-mono-fonts-all
       - mozilla-fira-mono-fonts
       - powerline-fonts
-      - ubuntu-family-fonts
+      # - ubuntu-family-fonts
     remove:
       - ublue-os-update-services
       - plasma-welcome
