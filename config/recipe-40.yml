@@ -84,6 +84,7 @@ modules:
       - swaylock
       - wireguard-tools
       - strace # for debugging Keycloak integration
+      - seahorse
     # labwc
     #  - labwc
     #  - bemenu
