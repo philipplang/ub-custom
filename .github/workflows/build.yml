@@ -24,7 +24,8 @@ jobs:
           # !! Add your recipes here 
           - recipe.yml
           - recipe-40.yml
-          - recipe-aurora.yml
+          # - recipe-aurora.yml
+          - recipe-kinoite.yml
     steps:
        # the build is fully handled by the reusable github action
       - name: Build Custom Image
