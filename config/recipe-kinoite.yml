@@ -34,20 +34,20 @@ modules:
     install:
       # - gnome-shell-extension-dash-to-dock
       # - gnome-shell-extension-user-theme
-      # - podman-compose
+      - podman-compose
       # - thunderbird
-      # - VirtualBox
+      - VirtualBox
       # - virtualbox-guest-additions
       # - akmod-VirtualBox
-      # - zsh
-      # - zsh-syntax-highlighting
+      - zsh
+      - zsh-syntax-highlighting
       - lsd
       # - system-config-printer
-      # - mscore-fonts
-      # - powertop
+      - mscore-fonts
+      - powertop
       # - sshfs
       # - pinta # Bild-Editor
-      # - firewall-config
+      - firewall-config
       # - hyprland
       # - hypridle
       # - hyprlock
@@ -68,11 +68,35 @@ modules:
       # - wlogout
       # - wl-clipboard
       # - swappy
-      # - fontawesome-fonts-all
+      - fontawesome-fonts-all
       # - libappindicator-gtk3
       # - network-manager-applet
       # - swaylock
       # - strace # for debugging Keycloak integration
+
+      # specific to kde:
+      - wl-clipboard
+      - libadwaita-qt5
+      - libadwaita-qt6
+      - kdeplasma-addons
+      - kde-runtime-docs
+      - podman-tui
+      - python3-pip
+
+      - adobe-source-code-pro-fonts
+      - cascadia-code-fonts
+      - google-droid-sans-mono-fonts
+      - google-go-mono-fonts
+      - ibm-plex-mono-fonts
+      - jetbrains-mono-fonts-all
+      - mozilla-fira-mono-fonts
+      - powerline-fonts
+      - ubuntu-family-fonts
+  remove:
+    - ublue-os-update-services
+    - plasma-welcome
+    - firefox
+    - firefox-langpacks
 
   - type: default-flatpaks
     notify: true   # Send notification after install/uninstall is finished (true/false)
