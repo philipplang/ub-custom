@@ -85,6 +85,7 @@ modules:
       - wireguard-tools
       - strace # for debugging Keycloak integration
       - seahorse
+      - keepassxc
     # labwc
     #  - labwc
     #  - bemenu
