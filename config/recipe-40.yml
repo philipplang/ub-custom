@@ -33,7 +33,7 @@ modules:
       # - https://copr.fedorainfracloud.org/coprs/kallepm/tuxedo-control-center/repo/fedora-%OS_VERSION%/kallepm-tuxedo-control-center-fedora-%OS_VERSION%.repo
       # - https://copr.fedorainfracloud.org/coprs/kallepm/tuxedo-drivers/repo/fedora-%OS_VERSION%/kallepm-tuxedo-drivers-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%OS_VERSION%/solopasha-hyprland-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/emixampp/synology-drive
+      - https://copr.fedorainfracloud.org/coprs/emixampp/synology-drive/repo/fedora-%OS_VERSION%/emixampp-synology-drive-fedora-%OS_VERSION%.repo
     install:
     # gnome
       - gnome-shell-extension-dash-to-dock
