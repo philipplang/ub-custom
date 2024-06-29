@@ -37,6 +37,8 @@ modules:
     # gnome
       - gnome-shell-extension-dash-to-dock
       - gnome-shell-extension-user-theme
+      - libcanberra-gtk3
+      - libcanberra-gtk
     # allgemein
     #  - libreoffice-calc
       - podman-compose
