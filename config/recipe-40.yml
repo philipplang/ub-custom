@@ -39,6 +39,7 @@ modules:
       - gnome-shell-extension-user-theme
       - libcanberra-gtk3
       - libcanberra-gtk2
+      - binutils-dev
     # allgemein
     #  - libreoffice-calc
       - podman-compose
