@@ -90,6 +90,7 @@ modules:
       - strace # for debugging Keycloak integration
       - seahorse
       - keepassxc
+      - ulauncher
     # labwc
     #  - labwc
     #  - bemenu
