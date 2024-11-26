@@ -75,7 +75,7 @@ modules:
       - rofi
       - dunst
       - xdg-desktop-portal-hyprland
-      - polkit-gnome
+      - polkit
       - brightnessctl
       - pavucontrol
       - blueman
