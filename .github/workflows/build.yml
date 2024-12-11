@@ -25,7 +25,7 @@ jobs:
           # - recipe.yml
           - recipe-40.yml
           - recipe-41.yml
-          # - recipe-kinoite.yml
+          - recipe-kinoite.yml
     steps:
        # the build is fully handled by the reusable github action
       - name: Build Custom Image
