@@ -23,11 +23,14 @@ modules:
                   # configuration you wish to end up in /etc/ on the booted system
                   # should be added into /usr/etc/ as that is the proper "distro"
                   # config directory on ostree. Read more in the files module's README
-
+  - type: script
+    snippets:
+      - "update-ca-trust"
   - type: rpm-ostree
     install:
       - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
       - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
+  - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/repo/fedora-%OS_VERSION%/tofik-nwg-shell-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/eddsalkield/swaylock-effects/repo/fedora-%OS_VERSION%/eddsalkield-swaylock-effects-fedora-%OS_VERSION%.repo
