@@ -94,8 +94,9 @@ modules:
       - strace # for debugging Keycloak integration
       - seahorse
       - keepassxc
-      - ulauncher
+      #- ulauncher
       - nnn
+      - gparted
     # labwc
     #  - labwc
     #  - bemenu
