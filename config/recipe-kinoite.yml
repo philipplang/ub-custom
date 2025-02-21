@@ -93,7 +93,7 @@ modules:
       # - strace # for debugging Keycloak integration
 
       # specific to kde:
-      - libadwaita-qt5
+      #- libadwaita-qt5
       - libadwaita-qt6
       - kdeplasma-addons
       - kde-runtime-docs
