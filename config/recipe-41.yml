@@ -13,7 +13,7 @@ modules:
   - type: akmods
     install:
         - v4l2loopback
-        # - VirtualBox
+        - VirtualBox
   - type: files
     files:
       - usr: /usr # copy static configurations
@@ -49,7 +49,7 @@ modules:
       - thunderbird
       - VirtualBox
       - virtualbox-guest-additions
-      - akmod-VirtualBox
+      # - akmod-VirtualBox
       - zsh
       - zsh-syntax-highlighting
       - lsd
