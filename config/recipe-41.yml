@@ -103,9 +103,9 @@ modules:
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
-  - type: rpm-ostree
-    install:
-      - bitbox-4.47.2-1.x86_64.rpm
+  # - type: rpm-ostree
+  #   install:
+  #     - bitbox-4.47.2-1.x86_64.rpm
   - type: default-flatpaks
     notify: true   # Send notification after install/uninstall is finished (true/false)
     system:
