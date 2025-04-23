@@ -1,28 +1,23 @@
 # image will be published to ghcr.io/<user>/<name>
-name: ub-custom-kinoite
+name: ub-custom-42
 # description will be included in the image's metadata
 description: A starting point for further customization of uBlue images. Make your own! https://ublue.it/making-your-own/
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/kinoite-main
-image-version: 40 # latest is also supported if you want new updates ASAP
+base-image: ghcr.io/ublue-os/silverblue-main
+image-version: 42 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
   - type: akmods
     install:
-        # - v4l2loopback
-        - VirtualBox
+        - v4l2loopback
+        # - VirtualBox
   - type: files
     files:
-      - usr: /usr # copy static configurations
-                  #
-                  # copies config/files/usr into your image's /usr
-                  #
-                  # configuration you wish to end up in /etc/ on the booted system
-                  # should be added into /usr/etc/ as that is the proper "distro"
-                  # config directory on ostree. Read more in the files module's README
+      - destination: /usr
+        source: usr
   - type: script
     snippets:
       - "update-ca-trust"
@@ -32,88 +27,85 @@ modules:
       - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
   - type: rpm-ostree
     repos:
-      #- https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/repo/fedora-%OS_VERSION%/tofik-nwg-shell-fedora-%OS_VERSION%.repo
-      #- https://copr.fedorainfracloud.org/coprs/eddsalkield/swaylock-effects/repo/fedora-%OS_VERSION%/eddsalkield-swaylock-effects-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/repo/fedora-%OS_VERSION%/tofik-nwg-shell-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/eddsalkield/swaylock-effects/repo/fedora-%OS_VERSION%/eddsalkield-swaylock-effects-fedora-%OS_VERSION%.repo
       # - https://copr.fedorainfracloud.org/coprs/kallepm/tuxedo-control-center/repo/fedora-%OS_VERSION%/kallepm-tuxedo-control-center-fedora-%OS_VERSION%.repo
       # - https://copr.fedorainfracloud.org/coprs/kallepm/tuxedo-drivers/repo/fedora-%OS_VERSION%/kallepm-tuxedo-drivers-fedora-%OS_VERSION%.repo
-      #- https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%OS_VERSION%/solopasha-hyprland-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%OS_VERSION%/solopasha-hyprland-fedora-%OS_VERSION%.repo
     install:
-      # common
+    # gnome
+      - gnome-shell-extension-dash-to-dock
+      - gnome-shell-extension-user-theme
+      - libcanberra-gtk3
+      - libcanberra-gtk2
+    # allgemein
+    #  - libreoffice-calc
       - podman-compose
-      #- VirtualBox
-      #- virtualbox-guest-additions
+      - thunderbird
+      # - VirtualBox
+      # - virtualbox-guest-additions
+      # - akmod-VirtualBox
       - zsh
       - zsh-syntax-highlighting
       - lsd
+      - system-config-printer
       - mscore-fonts
       - powertop
-      - firewall-config
-      - wl-clipboard
-      - fontawesome-fonts-all
-      - wireguard-tools
       - sshfs
-
-      # - gnome-shell-extension-dash-to-dock
-      # - gnome-shell-extension-user-theme
-      
-      # - thunderbird
-      
-      # - virtualbox-guest-additions
-      # - akmod-VirtualBox
-
-      # - system-config-printer
-
-      # - sshfs
-      # - pinta # Bild-Editor
-
-      # - hyprland
-      # - hypridle
-      # - hyprlock
-      # - waybar
-      # - kitty
-      # - alacritty
-      # - wofi
-      # - rofi
-      # - dunst
-      # - xdg-desktop-portal-hyprland
-      # - polkit-gnome
-      # - brightnessctl
-      # - pavucontrol
-      # - blueman
-      # - NetworkManager-tui
-      # - swaybg
-      # - swayidle
-      # - wlogout
-
-      # - swappy
-
-      # - libappindicator-gtk3
-      # - network-manager-applet
-      # - swaylock
-      # - strace # for debugging Keycloak integration
-
-      # specific to kde:
-      #- libadwaita-qt5
-      - libadwaita-qt6
-      - kdeplasma-addons
-      - kde-runtime-docs
-      - podman-tui
-      - python3-pip
-
-      - adobe-source-code-pro-fonts
-      - cascadia-code-fonts
-      - google-droid-sans-mono-fonts
-      - google-go-mono-fonts
-      - ibm-plex-mono-fonts
-      - jetbrains-mono-fonts-all
-      - mozilla-fira-mono-fonts
-      - powerline-fonts
+      - pinta # Bild-Editor
+      - firewall-config
+#      - tuxedo-drivers
+#      - kernel-devel
+#      - tuxedo-control-center
+    # Hyprland + Wayland
+      - hyprland
+      - hyprland-plugins
+      - hypridle
+      - hyprlock
+      #- waybar
+      - waybar-git # enthaelt neusten Snapshot von waybar.
+      - kitty
+      - alacritty
+      - wofi
+      - rofi
+      - dunst
+      - xdg-desktop-portal-hyprland
+      - polkit
+      - brightnessctl
+      - pavucontrol
+      - blueman
+      - NetworkManager-tui
+      - swaybg
+      - swayidle
+#      - swaylock-effects
+      - wlogout
+      - wl-clipboard
+      - swappy
+      - fontawesome-fonts-all
+      - libappindicator-gtk3
+      - network-manager-applet
+      - swaylock
+      - wireguard-tools
+      - strace # for debugging Keycloak integration
+      - seahorse
+      - keepassxc
+      #- ulauncher
+      - nnn
+      - gparted
+    # labwc
+    #  - labwc
+    #  - bemenu
+    # sway
+#      - sway
+#      - nwg-shell
+    # i3
+#      - i3
     remove:
-      - ublue-os-update-services
-      - plasma-welcome
-      - firefox
-      - firefox-langpacks
-
+      - firefox # default firefox removed in favor of flatpak
+      - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
+  # - type: rpm-ostree
+  #   install:
+  #     - bitbox-4.47.2-1.x86_64.rpm
   - type: default-flatpaks
     notify: true   # Send notification after install/uninstall is finished (true/false)
     system:
@@ -121,13 +113,13 @@ modules:
       repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
       repo-name: flathub
       # repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
-      install:
+      # install:
       # - org.gnome.Loupe
       # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
       # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08).
       # Only normal flatpak applications are (like Floorp Lightning web browser in this example).
       # Multiple install of same flatpaks with different branches is not supported.
-      remove:
+      # remove:
       # - org.gnome.eog
       #
     # A flatpak repo can also be added without having to install flatpaks,
