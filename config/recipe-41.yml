@@ -102,6 +102,8 @@ modules:
     # i3
 #      - i3
       - forticlient
+      - openfortivpn
+      - NetworkManager-fortisslvpn-gnome
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
