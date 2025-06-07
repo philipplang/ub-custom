@@ -10,10 +10,10 @@ image-version: 42 # latest is also supported if you want new updates ASAP
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  # - type: akmods
-  #   install:
-  #       - v4l2loopback
-  #       # - VirtualBox
+  - type: akmods
+    install:
+        - v4l2loopback
+        # - VirtualBox
   - type: files
     files:
       - destination: /usr
@@ -100,6 +100,8 @@ modules:
 #      - nwg-shell
     # i3
 #      - i3
+      - openfortivpn
+      - NetworkManager-fortisslvpn-gnome
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
