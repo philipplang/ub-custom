@@ -12,7 +12,7 @@ image-version: 42 # latest is also supported if you want new updates ASAP
 modules:
   # - type: akmods
   #   install:
-  #       # - v4l2loopback
+  #       - v4l2loopback
   #       - VirtualBox
   - type: files
     files:
@@ -87,7 +87,7 @@ modules:
 
       # specific to kde:
       #- libadwaita-qt5
-      - libadwaita-qt6
+      # - libadwaita-qt6
       - kdeplasma-addons
       - kde-runtime-docs
       - podman-tui
@@ -103,7 +103,7 @@ modules:
       - powerline-fonts
     remove:
       - ublue-os-update-services
-      - plasma-welcome
+      # - plasma-welcome
       - firefox
       - firefox-langpacks
 
