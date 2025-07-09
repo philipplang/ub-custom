@@ -48,8 +48,8 @@ modules:
       - edk2-ovmf
       - swtpm
       - swtpm-tools
-      - virt-manager
-      - gnome-boxes
+      #- virt-manager
+      #- gnome-boxes
       - zsh
       - zsh-syntax-highlighting
       - lsd
