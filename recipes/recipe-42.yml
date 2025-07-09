@@ -42,9 +42,12 @@ modules:
     #  - libreoffice-calc
       - podman-compose
       - thunderbird
-      - VirtualBox
-      - virtualbox-guest-additions
-      - akmod-VirtualBox
+      # - VirtualBox
+      # - virtualbox-guest-additions
+      # - akmod-VirtualBox
+      - edk2-ovmf
+      - swtpm
+      - swtpm-tools
       - zsh
       - zsh-syntax-highlighting
       - lsd
