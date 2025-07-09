@@ -48,6 +48,7 @@ modules:
       - edk2-ovmf
       - swtpm
       - swtpm-tools
+      - virt-manager
       - zsh
       - zsh-syntax-highlighting
       - lsd
