@@ -49,6 +49,7 @@ modules:
       - swtpm
       - swtpm-tools
       - virt-manager
+      - gnome-boxes
       - zsh
       - zsh-syntax-highlighting
       - lsd
