@@ -136,8 +136,8 @@ modules:
       repo-name: flathub
 
   - type: default-flatpaks
-    system:
-      install:
+    configurations:
+      - install:
         - com.visualstudio.code
         - org.keepassxc.KeePassXC
         - net.cozic.joplin_desktop
