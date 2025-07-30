@@ -114,11 +114,12 @@ modules:
   #   install:
   #     - bitbox-4.47.2-1.x86_64.rpm
   - type: default-flatpaks
-    notify: true   # Send notification after install/uninstall is finished (true/false)
-    system:
-      # If no repo information is specified, Flathub will be used by default
-      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      repo-name: flathub
+    configurations:
+    - notify: true   # Send notification after install/uninstall is finished (true/false)
+      scope: system
+      repo:
+        url: https://dl.flathub.org/repo/flathub.flatpakrepo
+        name: flathub
       # repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
       # install:
       # - org.gnome.Loupe
@@ -131,9 +132,10 @@ modules:
       #
     # A flatpak repo can also be added without having to install flatpaks,
     # as long as one of the repo- fields is present
-    user:
-      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      repo-name: flathub
+    - scope: user
+      repo:
+        url: https://dl.flathub.org/repo/flathub.flatpakrepo
+        name: flathub
 
   - type: default-flatpaks
     configurations:
