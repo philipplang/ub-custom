@@ -36,6 +36,7 @@ modules:
     # gnome
       - gnome-shell-extension-dash-to-dock
       - gnome-shell-extension-user-theme
+      - gnome-tweaks
       - libcanberra-gtk3
       - libcanberra-gtk2
     # allgemein
