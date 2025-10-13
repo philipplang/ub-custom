@@ -145,3 +145,12 @@ modules:
         - io.podman_desktop.PodmanDesktop
 
   - type: signing
+
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - Hack
+        - SourceCodePro
+        - Terminus
+        - JetBrainsMono
+        - NerdFontsSymbolsOnly
