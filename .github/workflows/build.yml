@@ -26,7 +26,7 @@ jobs:
           #- recipe-40.yml
           #- recipe-41.yml
           #- recipe-kinoite.yml
-          - recipe-kinoite-42.yml
+          #- recipe-kinoite-42.yml
           #- recipe-42.yml
           - recipe-43.yml
     steps:
