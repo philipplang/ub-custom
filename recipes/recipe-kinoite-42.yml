@@ -23,7 +23,7 @@ modules:
                   # configuration you wish to end up in /etc/ on the booted system
                   # should be added into /usr/etc/ as that is the proper "distro"
                   # config directory on ostree. Read more in the files module's README
-  - type: script
+  - type: script@v1
     snippets:
       - "update-ca-trust"
   - type: rpm-ostree

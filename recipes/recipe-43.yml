@@ -18,7 +18,7 @@ modules:
     files:
       - destination: /usr
         source: usr
-  - type: script
+  - type: script@v1
     snippets:
       - "update-ca-trust"
   - type: rpm-ostree
