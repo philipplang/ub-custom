@@ -49,7 +49,7 @@ modules:
       - edk2-ovmf
       - swtpm
       - swtpm-tools
-      #- virt-manager
+      - virt-manager
       #- gnome-boxes
       - zsh
       - zsh-syntax-highlighting
