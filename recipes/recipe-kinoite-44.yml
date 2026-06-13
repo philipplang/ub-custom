@@ -99,7 +99,6 @@ modules:
       - google-go-mono-fonts
       - ibm-plex-mono-fonts
       - jetbrains-mono-fonts-all
-      - mozilla-fira-mono-fonts
       - powerline-fonts
     remove:
       - ublue-os-update-services
