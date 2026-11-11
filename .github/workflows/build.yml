@@ -30,6 +30,7 @@ jobs:
           #- recipe-42.yml
           #- recipe-43.yml
           - recipe-44.yml
+          - recipe-45.yml
           - recipe-kinoite-44.yml
     steps:
        # the build is fully handled by the reusable github action
