@@ -9,11 +9,28 @@ image-version: 45 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
+# Fedora 45: rpm-ostree install no longer works during container builds,
+# therefore the dnf module (dnf5) is used instead of rpm-ostree.
 modules:
-  - type: akmods
+  # RPM Fusion must be installed before v4l2loopback (kmod depends on the v4l2loopback package from RPM Fusion)
+  - type: dnf
     install:
-        - v4l2loopback
-        # - VirtualBox
+      packages:
+        - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
+        - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
+
+  # Workaround for blue-build/modules#597 (akmods module uses rpm-ostree install, fails on F45)
+  # Replace with the akmods module again once the fix is merged:
+  # - type: akmods
+  #   install:
+  #       - v4l2loopback
+  #       # - VirtualBox
+  - type: containerfile
+    snippets:
+      - >-
+        RUN --mount=type=bind,from=ghcr.io/ublue-os/akmods:main-45,src=/rpms,dst=/tmp/akmods-rpms
+        dnf5 -y install /tmp/akmods-rpms/kmods/*v4l2loopback*.rpm && dnf5 clean all
+
   - type: files
     files:
       - destination: /usr
@@ -21,104 +38,105 @@ modules:
   - type: script@v1
     snippets:
       - "update-ca-trust"
-  - type: rpm-ostree
-    install:
-      - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
-      - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
-  - type: rpm-ostree
+
+  - type: dnf
     repos:
-      - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/repo/fedora-%OS_VERSION%/tofik-nwg-shell-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/eddsalkield/swaylock-effects/repo/fedora-%OS_VERSION%/eddsalkield-swaylock-effects-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/scottames/ghostty/repo/fedora-%OS_VERSION%/scottames-ghostty-fedora-%OS_VERSION%.repo
-      # - https://copr.fedorainfracloud.org/coprs/kallepm/tuxedo-control-center/repo/fedora-%OS_VERSION%/kallepm-tuxedo-control-center-fedora-%OS_VERSION%.repo
-      # - https://copr.fedorainfracloud.org/coprs/kallepm/tuxedo-drivers/repo/fedora-%OS_VERSION%/kallepm-tuxedo-drivers-fedora-%OS_VERSION%.repo
-      #- https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%OS_VERSION%/solopasha-hyprland-fedora-%OS_VERSION%.repo
+      copr:
+        - tofik/nwg-shell
+        - eddsalkield/swaylock-effects
+        - scottames/ghostty
+        # - kallepm/tuxedo-control-center
+        # - kallepm/tuxedo-drivers
+        # - solopasha/hyprland
     install:
-    # gnome
-      - gnome-shell-extension-dash-to-dock
-      - gnome-shell-extension-user-theme
-      - gnome-tweaks
-      - libcanberra-gtk3
-      - libcanberra-gtk2
-    # allgemein
-    #  - libreoffice-calc
-      - podman-compose
-      - thunderbird
-      # - VirtualBox
-      # - virtualbox-guest-additions
-      # - akmod-VirtualBox
-      - edk2-ovmf
-      - swtpm
-      - swtpm-tools
-      - virt-manager
-      #- gnome-boxes
-      - zsh
-      - zsh-syntax-highlighting
-      - lsd
-      - system-config-printer
-      - mscore-fonts
-      - powertop
-      - sshfs
-      - pinta # Bild-Editor
-      - firewall-config
-#      - tuxedo-drivers
-#      - kernel-devel
-#      - tuxedo-control-center
-    # Hyprland + Wayland
-      #- hyprland
-      #- hyprland-plugins
-      #- hypridle
-      #- hyprlock
-      #- waybar
-      #- waybar-git # enthaelt neusten Snapshot von waybar.
-      - kitty
-      - alacritty
-      - ghostty
-      - wofi
-      - rofi
-      - dunst
-      #- xdg-desktop-portal-hyprland
-      - polkit
-      - brightnessctl
-      - pavucontrol
-      - blueman
-      - NetworkManager-tui
-      - swaybg
-      - swayidle
-#      - swaylock-effects
-      - wlogout
-      - wl-clipboard
-      - swappy
-      - fontawesome-fonts-all
-      - libappindicator-gtk3
-      - network-manager-applet
-      - swaylock
-      - wireguard-tools
-      - strace # for debugging Keycloak integration
-      - seahorse
-      - keepassxc
-      #- ulauncher
-      - nnn
-      - gparted
-    # labwc
-    #  - labwc
-    #  - bemenu
-    # sway
-#      - sway
-#      - nwg-shell
-    # i3
-#      - i3
-      - openfortivpn
-      - NetworkManager-fortisslvpn-gnome
-      - chromium
-      - mutter-devel
-      - mutter-devkit
+      packages:
+      # gnome
+        - gnome-shell-extension-dash-to-dock
+        - gnome-shell-extension-user-theme
+        - gnome-tweaks
+        - libcanberra-gtk3
+        - libcanberra-gtk2
+      # allgemein
+      #  - libreoffice-calc
+        - podman-compose
+        - thunderbird
+        # - VirtualBox
+        # - virtualbox-guest-additions
+        # - akmod-VirtualBox
+        - edk2-ovmf
+        - swtpm
+        - swtpm-tools
+        - virt-manager
+        #- gnome-boxes
+        - zsh
+        - zsh-syntax-highlighting
+        - lsd
+        - system-config-printer
+        - mscore-fonts
+        - powertop
+        - sshfs
+        - pinta # Bild-Editor
+        - firewall-config
+  #      - tuxedo-drivers
+  #      - kernel-devel
+  #      - tuxedo-control-center
+      # Hyprland + Wayland
+        #- hyprland
+        #- hyprland-plugins
+        #- hypridle
+        #- hyprlock
+        #- waybar
+        #- waybar-git # enthaelt neusten Snapshot von waybar.
+        - kitty
+        - alacritty
+        - ghostty
+        - wofi
+        - rofi
+        - dunst
+        #- xdg-desktop-portal-hyprland
+        - polkit
+        - brightnessctl
+        - pavucontrol
+        - blueman
+        - NetworkManager-tui
+        - swaybg
+        - swayidle
+  #      - swaylock-effects
+        - wlogout
+        - wl-clipboard
+        - swappy
+        - fontawesome-fonts-all
+        - libappindicator-gtk3
+        - network-manager-applet
+        - swaylock
+        - wireguard-tools
+        - strace # for debugging Keycloak integration
+        - seahorse
+        - keepassxc
+        #- ulauncher
+        - nnn
+        - gparted
+      # labwc
+      #  - labwc
+      #  - bemenu
+      # sway
+  #      - sway
+  #      - nwg-shell
+      # i3
+  #      - i3
+        - openfortivpn
+        - NetworkManager-fortisslvpn-gnome
+        - chromium
+        - mutter-devel
+        - mutter-devkit
     remove:
-      - firefox # default firefox removed in favor of flatpak
-      - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
-  # - type: rpm-ostree
+      packages:
+        - firefox # default firefox removed in favor of flatpak
+        - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
+  # - type: dnf
   #   install:
-  #     - bitbox-4.47.2-1.x86_64.rpm
+  #     packages:
+  #       - bitbox-4.47.2-1.x86_64.rpm
   - type: default-flatpaks
     configurations:
     - notify: true   # Send notification after install/uninstall is finished (true/false)
