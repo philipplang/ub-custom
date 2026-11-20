@@ -75,7 +75,7 @@ modules:
         - mscore-fonts
         - powertop
         - sshfs
-        - pinta # Bild-Editor
+        # - pinta # Bild-Editor: in Fedora 45 nicht mehr als RPM verfuegbar -> Flatpak com.github.PintaProject.Pinta
         - firewall-config
   #      - tuxedo-drivers
   #      - kernel-devel
@@ -173,6 +173,7 @@ modules:
         - com.discordapp.Discord
         - info.portfolio_performance.PortfolioPerformance
         - io.podman_desktop.PodmanDesktop
+        - com.github.PintaProject.Pinta
 
   - type: signing
 
