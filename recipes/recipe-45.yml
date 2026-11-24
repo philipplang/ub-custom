@@ -126,6 +126,7 @@ modules:
   #      - i3
         - openfortivpn
         - NetworkManager-fortisslvpn-gnome
+        - NetworkManager-strongswan-gnome
         - chromium
         - mutter-devel
         - mutter-devkit
